@@ -18,10 +18,10 @@ function Level(plan){
         for (let x = 0; x < this.width; x++) {
             let character = line[x];
             
-            //console.log(character)
+            console.log(character)
             
             let characterType = null;
-            if (character === x) {
+            if (character === 'x') {
                 characterType = 'wall'
             } else if (character === '!'){
                 characterType = 'lava';
@@ -34,3 +34,11 @@ function Level(plan){
 
     console.log(this.grid)
 }
+
+/*
+#alias git
+alias git status = gs
+alias git add = ga
+alias git push origin master = gom
+alias git commit -m = gc
+*/

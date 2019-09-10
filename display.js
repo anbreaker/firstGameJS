@@ -14,11 +14,23 @@ function createElement (type, className) {
 function DOMDisplay (parent, level) {
     this.wrap = parent.appendChild(createElement('div', 'game'));
     this.level = level;
+    
 
-    // this.wrap.appendChild();
-
+    //Pintar fondo
     this.drawBackground = function () {
         let table = createElement('table', 'background');
         table.style.width = this.level.width * SCALE + 'px';
+
+        //Crear filas
+        this.level.grid.forEach(row => {
+            let rowElement = createElement('tr');
+            rowElement.style.height = SCALE + 'px';
+            table.appendChild(rowElement);
+            row.forEach(type => rowElement.appendChild(createElement('td', type)))
+            // console.log(rowElement);
+        });
+
+        return table;
     }
+    this.wrap.appendChild(this.drawBackground());
 }
